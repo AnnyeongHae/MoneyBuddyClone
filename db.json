@@ -1,0 +1,132 @@
+{
+    "budget": [
+        {
+            "date": "24.06.08",
+            "type": "expense",
+            "category": "식비",
+            "paytype": "카드",
+            "amount": "25000",
+            "memo": "점심 식사",
+            "periodicExpense": false
+        },
+        {
+            "date": "24.06.07",
+            "type": "income",
+            "category": "월급",
+            "paytype": "은행",
+            "amount": "2000000",
+            "memo": "6월 급여",
+            "periodicExpense": true
+        },
+        {
+            "date": "24.06.06",
+            "type": "expense",
+            "category": "교통비",
+            "paytype": "현금",
+            "amount": "1500",
+            "memo": "버스 요금",
+            "periodicExpense": false
+        },
+        {
+            "date": "24.06.05",
+            "type": "expense",
+            "category": "문화생활",
+            "paytype": "카드",
+            "amount": "30000",
+            "memo": "영화 관람",
+            "periodicExpense": false
+        },
+        {
+            "date": "24.06.04",
+            "type": "income",
+            "category": "용돈",
+            "paytype": "현금",
+            "amount": "50000",
+            "memo": "부모님 용돈",
+            "periodicExpense": false
+        },
+        {
+            "date": "24.06.03",
+            "type": "expense",
+            "category": "패션미용",
+            "paytype": "카드",
+            "amount": "70000",
+            "memo": "옷 구매",
+            "periodicExpense": false
+        },
+        {
+            "date": "24.06.02",
+            "type": "expense",
+            "category": "생활용품비",
+            "paytype": "현금",
+            "amount": "12000",
+            "memo": "화장지 구매",
+            "periodicExpense": false
+        },
+        {
+            "date": "24.06.01",
+            "type": "income",
+            "category": "저축이자",
+            "paytype": "은행",
+            "amount": "15000",
+            "memo": "저축 이자",
+            "periodicExpense": true
+        },
+        {
+            "date": "24.05.31",
+            "type": "expense",
+            "category": "공과금",
+            "paytype": "은행",
+            "amount": "80000",
+            "memo": "인터넷 요금",
+            "periodicExpense": true
+        },
+        {
+            "date": "24.05.30",
+            "type": "expense",
+            "category": "의료비",
+            "paytype": "현금",
+            "amount": "50000",
+            "memo": "병원비",
+            "periodicExpense": false
+        }
+    ],
+    "paytype": ["현금", "은행", "카드"],
+    "incomeCategory": ["월급", "저축이자", "용돈"],
+    "expenseCategory": [
+        "식비",
+        "생활용품비",
+        "패션미용",
+        "문화생활",
+        "교육",
+        "의료비",
+        "교통비",
+        "공과금",
+        "이자지출",
+        "고정지출",
+        "기타"
+    ],
+    "periodicExpense": [
+        {
+            "date": "24.06.07",
+            "type": "income",
+            "category": "월급",
+            "amount": "2000000",
+            "memo": "6월 급여"
+        },
+        {
+            "date": "24.06.01",
+            "type": "income",
+            "category": "저축이자",
+            "amount": "15000",
+            "memo": "저축 이자"
+        },
+        {
+            "date": "24.05.31",
+            "type": "expense",
+            "category": "공과금",
+            "amount": "80000",
+            "memo": "인터넷 요금"
+        }
+    ]
+}
