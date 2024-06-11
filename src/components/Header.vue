@@ -2,7 +2,7 @@
     <div>
         <h1>Header</h1>
         <ul>
-            <router-link :to="{ name: 'Home' }"></router-link>
+            <router-link :to="{ name: 'HomeExpense' }"></router-link>
         </ul>
     </div>
 </template>
