@@ -1,3 +1,4 @@
+<
 <template>
   <div class="categories">
     <button
