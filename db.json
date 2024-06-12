@@ -91,29 +91,6 @@
             "periodicExpense": false
         }
     ],
-    "paytype": [
-        { "id": 1, "type": "현금" },
-        { "id": 2, "type": "은행" },
-        { "id": 3, "type": "카드" }
-    ],
-    "incomeCategory": [
-        { "id": 1, "category": "월급" },
-        { "id": 2, "category": "저축이자" },
-        { "id": 3, "category": "용돈" }
-    ],
-    "expenseCategory": [
-        { "id": 1, "category": "식비" },
-        { "id": 2, "category": "생활용품비" },
-        { "id": 3, "category": "패션미용" },
-        { "id": 4, "category": "문화생활" },
-        { "id": 5, "category": "교육" },
-        { "id": 6, "category": "의료비" },
-        { "id": 7, "category": "교통비" },
-        { "id": 8, "category": "공과금" },
-        { "id": 9, "category": "이자지출" },
-        { "id": 10, "category": "고정지출" },
-        { "id": 11, "category": "기타" }
-    ],
     "periodicExpense": [
         {
             "date": "24.06.07",
