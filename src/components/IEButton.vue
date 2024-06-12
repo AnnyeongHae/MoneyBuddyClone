@@ -12,7 +12,7 @@ import { useRouter } from 'vue-router';
 
 const currentRoute = useRouter();
 const gotoExpense = () => {
-    currentRoute.push('/Expense');
+    currentRoute.push('/');
 };
 const gotoIncome = () => {
     currentRoute.push('/Income');
