@@ -1,11 +1,10 @@
-<
 <template>
   <div class="categories">
     <button
       v-for="category in categories"
       :key="category"
       :class="{ active: selectedCategory === category }"
-      @click="redirectToInput()"
+      @click="redirectToInput(category)"
     >
       {{ category }}
     </button>
@@ -31,9 +30,9 @@ export default {
     };
   },
   methods: {
-    redirectToInput() {
-      // 버튼을 클릭하면 '/input' 경로로 이동
-      this.$router.push('/input');
+    redirectToInput(category) {
+      // 카테고리를 query parameter로 전달하여 '/input' 경로로 이동
+      this.$router.push({ path: '/input', query: { category } });
     },
   },
 };
