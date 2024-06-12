@@ -170,6 +170,8 @@ export const useBudgetListStore = defineStore('BudgetList', () => {
     const payTypes = computed(() => payType);
 
     return {
+        budget,
+        periodic,
         fetchBudget,
         fetchPeriodic,
         addBudget,
