@@ -10,13 +10,12 @@
 
       <select v-model="selectedCategory">
         <option value="">카테고리를 선택하세요</option>
-
         <option
-          v-for="category in categories"
-          :value="category.id"
-          :key="category.id"
+          v-for="category in expenseCategories"
+          :value="category"
+          :key="category"
         >
-          {{ category.name }}
+          {{ category }}
         </option>
       </select>
     </div>
@@ -53,31 +52,25 @@
 
     <div id="f">
       <button type="reset" @click="reset">다시 쓰기</button>
-      <button type="submit" @click="submit">완료</button>
+      <button type="submit" @click="addBudgetHandler">완료</button>
+      <!-- Handler...  -->
     </div>
   </form>
 </template>
 
-<script>
-export default {
-  name: 'App',
-  data() {
-    return {
-      selectedCategory: '',
-      categories: [
-        { id: 1, name: '식비' },
-        { id: 2, name: '생활용품' },
-        { id: 3, name: '패션미용' },
-        { id: 4, name: '문화생활' },
-        { id: 5, name: '교육' },
-        { id: 6, name: '의료비' },
-        { id: 7, name: '교통비' },
-        { id: 8, name: '공과금' },
-        { id: 9, name: '기타' },
-      ],
-    };
-  },
-};
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useBudgetListStore } from '../stores/budget.js';
+
+const budgetListStore = useBudgetListStore();
+const selectedCategory = ref('');
+
+onMounted(() => {
+  budgetListStore.fetchBudget();
+  budgetListStore.fetchPeriodic();
+});
+
+const expenseCategories = budgetListStore.expenseCategories;
 </script>
 
 <style lang="scss" scoped>
