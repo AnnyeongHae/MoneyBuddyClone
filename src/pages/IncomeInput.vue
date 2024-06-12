@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2>HomeExpense</h2>
+    <h2>IncomeInput</h2>
   </div>
 </template>
 
 <script setup></script>
 
-<style></style>
+<style lang="scss" scoped></style>

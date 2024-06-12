@@ -9,19 +9,19 @@
     <h1 style="text-align: center">MoneyBuddy</h1>
     <ul class="nav nav-pills justify-content-center">
       <li class="nav-item">
-        <a
-          class="nav-link active pointer"
-          @click="gotoExpense"
-          >Home</a
+        <router-link class="nav-link active pointer" to="/"
+          >Home</router-link
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link pointer" @click="gotoDaily"
-          >Daily</a
+        <router-link class="nav-link pointer" to="/Daily"
+          >Daily</router-link
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Monthly</a>
+        <router-link class="nav-link" to="/Monthly"
+          >Monthly</router-link
+        >
       </li>
     </ul>
     <hr />
@@ -37,16 +37,6 @@
 
 <script setup>
 import IEButton from './IEButton.vue';
-
-import { useRouter } from 'vue-router';
-
-const currentRoute = useRouter();
-const gotoDaily = () => {
-  currentRoute.push('/Daily');
-};
-const gotoExpense = () => {
-  currentRoute.push('/');
-};
 </script>
 
 <style>

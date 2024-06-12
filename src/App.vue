@@ -5,20 +5,28 @@
   >
     <Header />
     <router-view></router-view>
-    <ul>
-      <!-- <li
-        v-for="budgetItem in budgetList"
-        :key="budgetItem.id"
-      ></li> -->
-    </ul>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
 import Header from '@/components/Header.vue';
+
+// // import { computed } from 'vue';
+// import { useBudgetListStore } from './stores/budget.js';
 // const budgetListStore = useBudgetListStore();
-// const { budgetList, fetchBudgetList } = budgetListStore;
+// const fetchPeriodic = budgetListStore.fetchPeriodic;
+// // const fetchBudget = budgetListStore.fetchBudget;
+// fetchPeriodic();
+
+// gpt
+import { useBudgetListStore } from './stores/budget.js';
+const budgetListStore = useBudgetListStore();
+import { onMounted } from 'vue';
+const { fetchPeriodic, periodic } = budgetListStore;
+
+onMounted(async () => {
+  await fetchPeriodic();
+});
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
