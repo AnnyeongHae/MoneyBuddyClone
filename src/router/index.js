@@ -10,14 +10,14 @@ const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         { path: '/', name: 'HomeExpense', component: HomeExpense },
-        { path: '/Income', name: 'HomeIncome', component: HomeIncome },
+        { path: '/income', name: 'HomeIncome', component: HomeIncome },
         {
-            path: '/ExpenseInput',
+            path: '/expenseInput',
             name: 'ExpenseInput',
             component: ExpenseInput,
         },
-        { path: '/IncomeInput', name: 'IncomeInput', component: IncomeInput },
-        { path: '/Daily', name: 'Daily', component: Daily },
+        { path: '/incomeInput', name: 'IncomeInput', component: IncomeInput },
+        { path: '/daily', name: 'Daily', component: Daily },
     ],
 });
 

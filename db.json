@@ -1,7 +1,7 @@
 {
     "budget": [
         {
-            "date": "24.06.08",
+            "date": "2024-06-08",
             "type": "expense",
             "category": "식비",
             "paytype": "카드",
@@ -10,7 +10,7 @@
             "periodicExpense": false
         },
         {
-            "date": "24.06.07",
+            "date": "2024-06-07",
             "type": "income",
             "category": "월급",
             "paytype": "은행",
@@ -19,7 +19,7 @@
             "periodicExpense": true
         },
         {
-            "date": "24.06.06",
+            "date": "2024-06-06",
             "type": "expense",
             "category": "교통비",
             "paytype": "현금",
@@ -28,7 +28,7 @@
             "periodicExpense": false
         },
         {
-            "date": "24.06.05",
+            "date": "2024-06-05",
             "type": "expense",
             "category": "문화생활",
             "paytype": "카드",
@@ -37,7 +37,7 @@
             "periodicExpense": false
         },
         {
-            "date": "24.06.04",
+            "date": "2024-06-04",
             "type": "income",
             "category": "용돈",
             "paytype": "현금",
@@ -46,7 +46,7 @@
             "periodicExpense": false
         },
         {
-            "date": "24.06.03",
+            "date": "2024-06-03",
             "type": "expense",
             "category": "패션미용",
             "paytype": "카드",
@@ -55,7 +55,7 @@
             "periodicExpense": false
         },
         {
-            "date": "24.06.02",
+            "date": "2024-06-02",
             "type": "expense",
             "category": "생활용품비",
             "paytype": "현금",
@@ -64,7 +64,7 @@
             "periodicExpense": false
         },
         {
-            "date": "24.06.01",
+            "date": "2024-06-01",
             "type": "income",
             "category": "저축이자",
             "paytype": "은행",
@@ -73,7 +73,7 @@
             "periodicExpense": true
         },
         {
-            "date": "24.05.31",
+            "date": "2024-05-31",
             "type": "expense",
             "category": "공과금",
             "paytype": "은행",
@@ -82,7 +82,7 @@
             "periodicExpense": true
         },
         {
-            "date": "24.05.30",
+            "date": "2024-05-30",
             "type": "expense",
             "category": "의료비",
             "paytype": "현금",
@@ -93,21 +93,21 @@
     ],
     "periodicExpense": [
         {
-            "date": "24.06.07",
+            "date": "2024-06-07",
             "type": "income",
             "category": "월급",
             "amount": "2000000",
             "memo": "6월 급여"
         },
         {
-            "date": "24.06.01",
+            "date": "2024-06-01",
             "type": "income",
             "category": "저축이자",
             "amount": "15000",
             "memo": "저축 이자"
         },
         {
-            "date": "24.05.31",
+            "date": "2024-05-31",
             "type": "expense",
             "category": "공과금",
             "amount": "80000",
