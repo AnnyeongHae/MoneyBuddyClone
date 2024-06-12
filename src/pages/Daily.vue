@@ -3,62 +3,99 @@
     <h2>Daily</h2>
     <button
       class="btn btn-primary ms-1"
-      @click="fetchPeriodic"
+      @click="fetchBudget"
     >
       새로 고침
     </button>
     <div class="row">
       <div class="col">
         <ul class="list-group">
-          <li
-            v-for="expense in periodicExpenses"
-            :key="expense.id"
-          >
+          <li v-for="expense in periodic" :key="expense.id">
             {{ expense.date }} - {{ expense.category }}:
             {{ expense.amount }} - {{ expense.memo }}
+
+            <span
+              class="float-end badge bg-secondary pointer m-1"
+              @click="editExpense(expense.id)"
+              >편집</span
+            >
+            <span
+              class="float-end badge bg-secondary pointer m-1"
+              @click="removeExpense(expense.id)"
+              >삭제</span
+            >
           </li>
         </ul>
       </div>
+      <button
+        class="btn btn-success mt-3"
+        @click="addNewExpense"
+      >
+        새로운 지출 추가
+      </button>
     </div>
     <router-view></router-view>
   </div>
 </template>
 
 <script setup>
-// import { onMounted, computed } from 'vue';
-// import { useBudgetListStore } from '@/stores/budget.js';
-// // Pinia store를 사용하여 budgetListStore 정의
-// const budgetListStore = useBudgetListStore();
-// const { fetchPeriodic } = budgetListStore;
+import { onMounted, computed } from 'vue';
+import { useBudgetListStore } from '@/stores/budget.js';
+const budgetListStore = useBudgetListStore();
+const {
+  budget,
+  periodic,
+  fetchBudget,
+  fetchPeriodic,
+  addBudget,
+  editBudget,
+  deleteBudget,
+} = budgetListStore;
 
-// // 컴포넌트가 마운트될 때 fetchPeriodic 호출
-// onMounted(async () => {
-//   await fetchPeriodic();
-// });
+// Add
+const periodicExpenses = computed(() => periodic);
 
-import { onMounted, ref } from 'vue';
-import axios from 'axios';
-
-const periodicExpenses = ref([]);
-
-const fetchPeriodic = async () => {
-  try {
-    const response = await axios.get(
-      'http://localhost:3000/periodicExpense'
-    );
-    if (response.status === 200) {
-      periodicExpenses.value = response.data;
-    } else {
-      alert('PeriodicExpense 데이터 조회 실패');
-    }
-  } catch (error) {
-    alert('fetchPeriodic 에러 발생 : ' + error);
-  }
+const addNewExpense = async () => {
+  const newExpense = {
+    // id: Date.now(), // 예시로 고유 ID를 생성
+    date: '24.07.01',
+    type: 'expense',
+    category: '식비',
+    amount: 30000,
+    memo: '저녁 식사',
+    periodicExpense: true,
+  };
+  await addBudget(newExpense, () => {
+    alert('새로운 지출이 추가되었습니다.');
+  });
 };
-// 컴포넌트가 마운트될 때 fetchPeriodic 호출
-onMounted(async () => {
-  await fetchPeriodic();
-});
+
+// 지출 편집
+const editExpense = async (id) => {
+  const editedExpense = {
+    id,
+    date: '24.07.02',
+    type: 'expense',
+    category: '식비',
+    amount: 35000,
+    memo: '저녁 식사 수정',
+    periodicExpense: true,
+  };
+  await editBudget(editedExpense, () => {
+    alert('지출이 수정되었습니다.');
+  });
+};
+
+// 지출 삭제
+const removeExpense = async (id) => {
+  await deleteBudget(id);
+  alert('지출이 삭제되었습니다.');
+};
+// console.log('확인');
+// console.log(periodicExpenses);
+// console.log(budget);
+// console.log('periodic', periodic);
+// console.log('end');
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

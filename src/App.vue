@@ -10,22 +10,17 @@
 
 <script setup>
 import Header from '@/components/Header.vue';
-
-// // import { computed } from 'vue';
-// import { useBudgetListStore } from './stores/budget.js';
-// const budgetListStore = useBudgetListStore();
-// const fetchPeriodic = budgetListStore.fetchPeriodic;
-// // const fetchBudget = budgetListStore.fetchBudget;
-// fetchPeriodic();
-
-// gpt
-import { useBudgetListStore } from './stores/budget.js';
-const budgetListStore = useBudgetListStore();
+import { computed } from 'vue';
+import { useBudgetListStore } from './stores/budget';
 import { onMounted } from 'vue';
-const { fetchPeriodic, periodic } = budgetListStore;
 
-onMounted(async () => {
-  await fetchPeriodic();
+const budgetListStore = useBudgetListStore();
+const fetchPeriodic = budgetListStore.fetchPeriodic;
+const fetchBudget = budgetListStore.fetchBudget;
+
+onMounted(() => {
+  fetchPeriodic();
+  fetchBudget();
 });
 </script>
 

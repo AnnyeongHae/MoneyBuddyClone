@@ -4,6 +4,7 @@ import HomeIncome from '@/pages/HomeIncome.vue';
 import Input from '@/pages/Input.vue';
 import Daily from '@/pages/Daily.vue';
 import Monthly from '@/pages/Monthly.vue';
+import NotFound from '@/pages/NotFound.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,6 +25,11 @@ const router = createRouter({
       path: '/Monthly',
       name: 'Monthly',
       component: Monthly,
+    },
+    {
+      path: '/:paths(.*)*',
+      name: 'NotFound',
+      component: NotFound,
     },
   ],
 });
