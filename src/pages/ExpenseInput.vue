@@ -111,14 +111,6 @@ const addBudgetHandler = () => {
         router.push({ name: 'Daily' });
     });
 };
-// onMounted(() => {
-//     console.log('date : ', date);
-//     console.log('selectedCategory : ', selectedCategory);
-//     console.log('periodicExpense : ', periodicExpense);
-//     console.log('paytype : ', paytype);
-//     console.log('amount : ', amount);
-//     console.log('memo : ', memo);
-// });
 </script>
 
 <style>

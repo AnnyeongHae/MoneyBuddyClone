@@ -88,47 +88,79 @@ export const useBudgetListStore = defineStore('BudgetList', () => {
 
     const editBudget = async (BudgetData, successCallback) => {
         try {
-            // 이게 맞나..?
-            const { id, ...payload } = BudgetData;
-            const response = await axios.put(BudgetURI + `/${id}`, payload);
+            const payload = BudgetData;
+            const response = await axios.put(
+                BudgetURI + `/${payload.id}`,
+                payload
+            );
             if (response.status === 200) {
                 let index = budgetState.budget.findIndex(
-                    (budget) => budget.id === id
+                    (budget) => budget.id === payload.id
                 );
-                budgetState.budget[index] = { ...payload, id };
+                budgetState.budget[index] = payload;
 
+                // periodicExpense 배열에서도 해당 id budget 찾기
                 let periodicIndex = periodicState.periodicExpense.findIndex(
-                    (expense) => expense.id === id
+                    (expense) => expense.id === payload.id
                 );
 
+                // 고정지출로 선택했을 경우
                 if (payload.periodicExpense === true) {
-                    // periodicExpense가 true이고 배열에 존재하지 않으면 추가
+                    // periodicIndex가 -1 로 해당 배열에 존재하지 않을 경우 =>
                     if (periodicIndex === -1) {
-                        const periodicResponse = await axios.post(PeriodicURI, {
-                            ...payload,
-                            id,
-                        });
+                        // periodicExpense 서버 배열에 해당 데이터 추가
+                        const periodicResponse = await axios.post(
+                            PeriodicURI,
+                            payload
+                        );
+                        // 정상적으로 써졌을 경우
                         if (periodicResponse.status === 201) {
+                            //확인
+                            console.log(
+                                '서버 periodicExpense에 정상적으로 들어감 '
+                            );
                             periodicState.periodicExpense.push(
                                 periodicResponse.data
                             );
                         } else {
-                            alert('PeriodicExpense 추가 실패');
+                            alert('서버에 PeriodicExpense 추가 실패');
+                        }
+                    } else {
+                        // 이전에도 고정지출이었지만 내용이 변경된 경우
+                        // 고정지출 배열에서 해당 인덱스를 찾아서 내용을 바꿔줘야함
+                        const periodicResponse = await axios.put(
+                            PeriodicURI + `/${payload.id}`,
+                            payload
+                        );
+                        if (periodicResponse.status === 200) {
+                            periodicState.periodicExpense[periodicIndex] =
+                                periodicResponse.data;
+                        } else {
+                            console.log(
+                                '원래 고정지출이었던 PeriodicExpense 업데이트 실패'
+                            );
                         }
                     }
                 } else {
-                    // periodicExpense가 false이고 배열에 존재하면 삭제
+                    // 새로운 데이터를 고정지출로 선택 안한경우
+                    // 이전에 Periodic 배열에 없었던 경우 => 아무 작업할 필요 x
+                    // 이전에 Periodic 배열에 없었던 경우 => 삭제 필요
                     if (periodicIndex !== -1) {
+                        // 서버 PeriodicExpense 있던 데이터 삭제
                         const deleteResponse = await axios.delete(
-                            PeriodicURI + `/${id}`
+                            PeriodicURI + `/${payload.id}`
                         );
+                        //삭제 성공
                         if (deleteResponse.status === 200) {
+                            // 로컬 있는 데이터도 삭제
                             periodicState.periodicExpense.splice(
                                 periodicIndex,
                                 1
                             );
                         } else {
-                            alert('PeriodicExpense 삭제 실패');
+                            alert(
+                                ' 서버에 있는 PeriodicExpense 삭제 편집 실패'
+                            );
                         }
                     }
                 }
