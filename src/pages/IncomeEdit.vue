@@ -46,8 +46,8 @@
 
         <div id="f">
             <button type="reset" @click="reset">다시 쓰기</button>
-            <button type="submit" @click.prevent="addBudgetHandler">
-                완료
+            <button type="submit" @click.prevent="editBudgetHandler">
+                편집
             </button>
         </div>
     </form>
@@ -61,7 +61,7 @@ import { useRoute, useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
 const BudgetListStore = useBudgetListStore();
-const { budget, incomeCategories, addBudget } = BudgetListStore;
+const { budget, incomeCategories, editBudget } = BudgetListStore;
 const incomeCategory = computed(() => incomeCategories);
 
 // 반응형 변수 선언
@@ -72,6 +72,7 @@ const memo = ref('');
 
 // 전달 데이터 객체를 만드는 함수
 const budgetItem = reactive({
+    id: route.params.id || '', // 경로 매개변수에서 id 가져오기
     date: '',
     type: 'income',
     category: '',
@@ -79,14 +80,15 @@ const budgetItem = reactive({
     memo: '',
 });
 
-const addBudgetHandler = () => {
+const editBudgetHandler = () => {
+    budgetItem.id = route.params.id; // 경로 매개변수에서 id 가져오기
     budgetItem.date = date.value;
     budgetItem.category = selectedCategory.value;
     budgetItem.amount = amount.value;
     budgetItem.memo = memo.value;
 
-    console.log('addBudget 실행!', budgetItem);
-    addBudget({ ...budgetItem }, () => {
+    console.log('editBudget 실행!', budgetItem);
+    editBudget({ ...budgetItem }, () => {
         router.push({ name: 'Daily' });
     });
 };

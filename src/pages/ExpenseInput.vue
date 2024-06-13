@@ -64,7 +64,6 @@
             <button type="submit" @click.prevent="addBudgetHandler">
                 완료
             </button>
-            <!-- Handler...  -->
         </div>
     </form>
 </template>
@@ -91,7 +90,8 @@ const memo = ref('');
 // 전달 데이터 객체를 만드는 함수
 const budgetItem = reactive({
     date: '',
-    type: '',
+    type: 'expense',
+    paytype: '',
     category: '',
     amount: '',
     memo: '',
@@ -100,7 +100,7 @@ const budgetItem = reactive({
 
 const addBudgetHandler = () => {
     budgetItem.date = date.value;
-    budgetItem.type = paytype.value;
+    budgetItem.paytype = paytype.value;
     budgetItem.category = selectedCategory.value;
     budgetItem.amount = amount.value;
     budgetItem.memo = memo.value;

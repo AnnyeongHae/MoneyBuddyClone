@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 import { reactive, computed } from 'vue';
 import axios from 'axios';
 
-const BudgetURI = '/api/budget/';
+const BudgetURI = '/api/budget';
 const PeriodicURI = '/api/periodicExpense';
 
 export const useBudgetListStore = defineStore('BudgetList', () => {
