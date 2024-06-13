@@ -143,18 +143,42 @@ export const useBudgetListStore = defineStore('BudgetList', () => {
 
     const deleteBudget = async (id) => {
         try {
-            const response = await axios.delete(BudgetURI + `/${id}`);
-            if (response.status === 200) {
+            // Budget 항목 삭제
+            const responseBudget = await axios.delete(BudgetURI + `/${id}`);
+            if (responseBudget.status === 200) {
                 let index = budgetState.budget.findIndex(
                     (budget) => budget.id === id
                 );
-                budgetState.budget.splice(index, 1);
-                let periodicIndex = periodicState.periodicExpense.findIndex(
-                    (periodic) => periodic.id === id
-                );
-                periodicState.periodicExpense.splice(periodicIndex, 1);
+                if (index !== -1) {
+                    // Budget 상태에서 항목 제거
+                    const isPeriodic =
+                        budgetState.budget[index].periodicExpense;
+                    budgetState.budget.splice(index, 1);
+
+                    if (isPeriodic) {
+                        // periodicExpense가 true인 경우 PeriodicURI에서 항목 삭제
+                        const responsePeriodic = await axios.delete(
+                            PeriodicURI + `/${id}`
+                        );
+                        if (responsePeriodic.status === 200) {
+                            let periodicIndex =
+                                periodicState.periodicExpense.findIndex(
+                                    (periodic) => periodic.id === id
+                                );
+                            if (periodicIndex !== -1) {
+                                periodicState.periodicExpense.splice(
+                                    periodicIndex,
+                                    1
+                                );
+                            }
+                        } else {
+                            alert('PeriodicExpense 삭제 실패!');
+                        }
+                    }
+                    alert('지출이 삭제되었습니다.');
+                }
             } else {
-                alert('delete 실패!');
+                alert('Budget 삭제 실패!');
             }
         } catch (error) {
             alert('deleteBudget 에러 발생 : ' + error);
