@@ -152,6 +152,41 @@
       "amount": 234,
       "memo": "234",
       "periodicExpense": true
+    },
+    {
+      "id": "e5b7",
+      "date": "2024-06-18",
+      "type": "현금",
+      "category": "패션미용",
+      "amount": 123,
+      "memo": "212",
+      "periodicExpense": true
+    },
+    {
+      "id": "2b80",
+      "date": "2024-06-18",
+      "type": "카드",
+      "category": "패션미용",
+      "amount": 123,
+      "memo": "12321312",
+      "periodicExpense": true
+    },
+    {
+      "id": "81e4",
+      "date": "2024-06-19",
+      "type": "현금",
+      "category": "교육",
+      "amount": 12345,
+      "memo": "12343",
+      "periodicExpense": true
+    },
+    {
+      "id": "30b7",
+      "date": "2024-06-11",
+      "type": "",
+      "category": "저축이자",
+      "amount": 23434,
+      "memo": "23423"
     }
   ],
   "periodicExpense": [
@@ -194,6 +229,33 @@
       "type": "현금",
       "amount": 234,
       "memo": "234",
+      "periodicExpense": true
+    },
+    {
+      "id": "e5b7",
+      "date": "2024-06-18",
+      "type": "현금",
+      "category": "패션미용",
+      "amount": 123,
+      "memo": "212",
+      "periodicExpense": true
+    },
+    {
+      "id": "2b80",
+      "date": "2024-06-18",
+      "type": "카드",
+      "category": "패션미용",
+      "amount": 123,
+      "memo": "12321312",
+      "periodicExpense": true
+    },
+    {
+      "id": "81e4",
+      "date": "2024-06-19",
+      "type": "현금",
+      "category": "교육",
+      "amount": 12345,
+      "memo": "12343",
       "periodicExpense": true
     }
   ]

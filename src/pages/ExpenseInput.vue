@@ -19,11 +19,6 @@
       </select>
     </div>
 
-    <div class="fix-button">
-      <input type="checkbox" v-model="periodicExpense" value="false" />
-      <span> 고정 지출 : {{ periodicExpense }} </span>
-    </div>
-
     <div class="c">
       <label for="paytype">지불 방법&nbsp;</label>
       <select v-model="paytype" id="paytype">
@@ -42,6 +37,11 @@
         id="amount"
         placeholder="Placeholder"
       />
+    </div>
+
+    <div class="fix-button">
+      <input type="checkbox" v-model="periodicExpense" value="false" />
+      <span> 고정 지출 : {{ periodicExpense }} </span>
     </div>
 
     <div class="e">

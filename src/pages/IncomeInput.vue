@@ -9,28 +9,9 @@
       <label for="category">카테고리&nbsp;</label>
 
       <select id="category" v-model="selectedCategory">
-        <option
-          v-for="expense in expenseCategory"
-          :value="expense"
-          :key="expense"
-        >
-          {{ expense }}
+        <option v-for="income in incomeCategory" :value="income" :key="income">
+          {{ income }}
         </option>
-      </select>
-    </div>
-
-    <div class="fix-button">
-      <input type="checkbox" v-model="periodicExpense" value="false" />
-      <span> 고정 지출 : {{ periodicExpense }} </span>
-    </div>
-
-    <div class="c">
-      <label for="paytype">지불 방법&nbsp;</label>
-      <select v-model="paytype" id="paytype">
-        <option value="" disabled>선택</option>
-        <option value="카드">카드</option>
-        <option value="현금">현금</option>
-        <option value="은행">은행</option>
       </select>
     </div>
 
@@ -66,13 +47,12 @@ import { useRoute, useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
 const BudgetListStore = useBudgetListStore();
-const { budget, expenseCategories, addBudget } = BudgetListStore;
-const expenseCategory = computed(() => expenseCategories);
+const { budget, incomeCategories, addBudget } = BudgetListStore;
+const incomeCategory = computed(() => incomeCategories);
 
 // 반응형 변수 선언
 const date = ref('');
 const selectedCategory = ref('');
-const periodicExpense = ref(false);
 const paytype = ref('');
 const amount = ref(0);
 const memo = ref('');
@@ -84,7 +64,6 @@ const budgetItem = reactive({
   category: '',
   amount: '',
   memo: '',
-  periodicExpense: '',
 });
 
 const addBudgetHandler = () => {
@@ -93,13 +72,13 @@ const addBudgetHandler = () => {
   budgetItem.category = selectedCategory.value;
   budgetItem.amount = amount.value;
   budgetItem.memo = memo.value;
-  budgetItem.periodicExpense = periodicExpense.value;
 
   console.log('addBudget 실행!', budgetItem);
   addBudget({ ...budgetItem }, () => {
     router.push({ name: 'Daily' });
   });
 };
+
 // onMounted(() => {
 //     console.log('date : ', date);
 //     console.log('selectedCategory : ', selectedCategory);
