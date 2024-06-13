@@ -31,6 +31,7 @@ export default {
   },
   methods: {
     redirectToInput(category) {
+      this.selectedCategory = category;
       // 카테고리를 query parameter로 전달하여 '/input' 경로로 이동
       this.$router.push({ path: '/input', query: { category } });
     },
