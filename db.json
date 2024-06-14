@@ -187,6 +187,30 @@
       "category": "저축이자",
       "amount": 23434,
       "memo": "23423"
+    },
+    {
+      "id": null,
+      "date": "2024-06-13",
+      "type": "",
+      "category": "용돈",
+      "amount": 0,
+      "memo": "2342"
+    },
+    {
+      "id": "8f93",
+      "date": "2024-05-29",
+      "type": "income",
+      "category": "저축이자",
+      "amount": 1231,
+      "memo": "12321"
+    },
+    {
+      "id": "8c48",
+      "date": "2024-06-17",
+      "type": "income",
+      "category": "월급",
+      "amount": 0,
+      "memo": ""
     }
   ],
   "periodicExpense": [

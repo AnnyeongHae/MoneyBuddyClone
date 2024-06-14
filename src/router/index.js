@@ -5,6 +5,7 @@ import HomeIncome from '@/pages/HomeIncome.vue';
 import ExpenseInput from '@/pages/ExpenseInput.vue';
 import IncomeInput from '@/pages/IncomeInput.vue';
 import Daily from '@/pages/Daily.vue';
+import EditIncome from '@/pages/EditIncome.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +19,7 @@ const router = createRouter({
     },
     { path: '/IncomeInput', name: 'IncomeInput', component: IncomeInput },
     { path: '/Daily', name: 'Daily', component: Daily },
+    { path: '/editIncome', name: 'EditIncome', component: EditIncome },
   ],
 });
 

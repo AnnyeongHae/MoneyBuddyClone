@@ -1,0 +1,104 @@
+/* Resetting default styles */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+ol,
+li,
+nav,
+footer {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 10px 0;
+  font-weight: normal;
+  color: #333;
+}
+
+#label {
+  margin: 0 0 10px 0;
+  font-weight: normal;
+  background-color: #333;
+}
+
+p {
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+  background-color: #666;
+}
+
+/* Links */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation */
+* {
+  background-color: rgb(237, 214, 42);
+  padding: 10px;
+  text-align: center;
+}
+
+/* .a {
+  background-color: rgb(146, 223, 187);
+  text-align: center;
+} */
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+/* General iPhone 12/13/14 */
+@media (min-width: 897px) and (max-width: 844px) {
+  body {
+    background-color: #bbdefb; /* Light blue */
+  }
+}
