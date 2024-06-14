@@ -1,98 +1,55 @@
 <template>
-  <div class="form-group">
-    <label for="date">날짜</label>
-    <input type="date" v-model="date" id="date" placeholder="Placeholder" />
-  </div>
-
-  <div class="entry">
-    <div class="entry-header">
-      <span>금액</span>
-      <div class="entry-actions">
-        <button class="edit-button">편집</button>
-        <button class="delete-button">삭제</button>
-      </div>
-    </div>
-
-    <div class="entry-body">
-      <span>카테고리</span>
-    </div>
-    &nbsp;&nbsp;&nbsp;
-  </div>
-  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-  <div class="entry">
-    <div class="entry-header">
-      <span>금액</span>
-      <div class="entry-actions">
-        <button class="edit-button">편집</button>
-        <button class="delete-button">삭제</button>
-      </div>
-    </div>
-
-    <div class="entry-body">
-      <span>카테고리</span>
-    </div>
-    &nbsp;&nbsp;&nbsp;
-  </div>
-  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-  <div class="entry">
-    <div class="entry-header">
-      <span>금액</span>
-      <div class="entry-actions">
-        <button class="edit-button">편집</button>
-        <button
-          class="delete-button"
-          key:class="btn btn primary m-1"
-          @click="router.push('/Daily')"
-        >
-          삭제
-        </button>
-      </div>
-    </div>
-
-    <div class="entry-body">
-      <span>카테고리</span>
-    </div>
-    &nbsp;&nbsp;&nbsp;
+  <div class="border" @click="gotoDetail(item.id)">
+    <span>date : {{ item.date }} </span>
+    type : {{ item.type }} <br />
+    category : {{ item.category }} <br />
+    paytype : {{ item.paytype }} <br />
+    amount : {{ item.amount }} <br />
+    memo : {{ item.memo }} <br />
+    periodicExpense : {{ item.periodicExpense }}
+    <span
+      class="float-end badge bg-secondary pointer m-1"
+      @click.stop="editBudget(item)"
+    >
+      편집
+    </span>
+    <span
+      class="float-end badge bg-secondary pointer m-1"
+      @click.stop="deleteBudget(item.id)"
+    >
+      삭제
+    </span>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Daily',
+<script setup>
+import { useRouter } from 'vue-router';
+import { defineProps } from 'vue';
+import { useBudgetListStore } from '@/stores/budget';
+
+const router = useRouter();
+const BudgetListStore = useBudgetListStore();
+const { deleteBudget } = BudgetListStore;
+
+const props = defineProps({
+  item: Object,
+});
+
+const gotoDetail = (id) => {
+  router.push(`/Detail/${id}`);
+};
+
+const editBudget = (item) => {
+  if (item.type === 'income') {
+    router.push(`/IncomeEdit/${item.id}`);
+  } else if (item.type === 'expense') {
+    router.push(`/ExpenseEdit/${item.id}`);
+  }
 };
 </script>
 
 <style scoped>
-.date-label {
-  margin-bottom: 5px;
-}
-
-.date-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.entry {
-  background-color: #e0e0e0;
-  padding: 10px;
-  border-radius: 4px;
-}
-
-.entry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #000;
-  padding-bottom: 5px;
-}
-
-.entry-actions button {
-  margin-left: 5px;
-}
-
-.entry-body {
-  padding-top: 5px;
+.card-text {
+  margin-bottom: 1rem;
 }
 </style>

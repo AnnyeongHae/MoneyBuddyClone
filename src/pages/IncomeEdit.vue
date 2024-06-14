@@ -1,0 +1,102 @@
+<template>
+    <form>
+        <div class="a">
+            <label for="date">날짜&nbsp;</label>
+            <input
+                type="date"
+                id="date"
+                v-model="date"
+                placeholder="Placeholder"
+            />
+        </div>
+
+        <div class="app">
+            <label for="category">카테고리&nbsp;</label>
+
+            <select id="category" v-model="selectedCategory">
+                <option
+                    v-for="income in incomeCategory"
+                    :value="income"
+                    :key="income"
+                >
+                    {{ income }}
+                </option>
+            </select>
+        </div>
+
+        <div class="d">
+            <label for="amount">금액&nbsp;</label>
+            <input
+                type="number"
+                v-model="amount"
+                id="amount"
+                placeholder="Placeholder"
+            />
+        </div>
+
+        <div class="e">
+            <label for="memo">메모</label>
+            <br />
+            <textarea
+                v-model="memo"
+                id="memo"
+                placeholder="Placeholder"
+            ></textarea>
+        </div>
+
+        <div id="f">
+            <button type="reset" @click="reset">다시 쓰기</button>
+            <button type="submit" @click.prevent="editBudgetHandler">
+                편집
+            </button>
+        </div>
+    </form>
+</template>
+
+<script setup>
+import { ref, computed, reactive, watch } from 'vue';
+import { useBudgetListStore } from '../stores/budget.js';
+import { useRoute, useRouter } from 'vue-router';
+
+const route = useRoute();
+const router = useRouter();
+const BudgetListStore = useBudgetListStore();
+const { budget, incomeCategories, editBudget } = BudgetListStore;
+const incomeCategory = computed(() => incomeCategories);
+
+// 반응형 변수 선언
+const date = ref('');
+const selectedCategory = ref('');
+const amount = ref(0);
+const memo = ref('');
+
+// 전달 데이터 객체를 만드는 함수
+const budgetItem = reactive({
+    id: route.params.id || '', // 경로 매개변수에서 id 가져오기
+    date: '',
+    type: 'income',
+    category: '',
+    amount: '',
+    memo: '',
+});
+
+const editBudgetHandler = () => {
+    budgetItem.id = route.params.id; // 경로 매개변수에서 id 가져오기
+    budgetItem.date = date.value;
+    budgetItem.category = selectedCategory.value;
+    budgetItem.amount = amount.value;
+    budgetItem.memo = memo.value;
+
+    console.log('editBudget 실행!', budgetItem);
+    editBudget({ ...budgetItem }, () => {
+        router.push({ name: 'Daily' });
+    });
+};
+</script>
+
+<style>
+* {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+</style>

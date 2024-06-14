@@ -190,6 +190,7 @@ export const useBudgetListStore = defineStore(
         alert('editBudget 에러 발생 : ' + error);
       }
     };
+
     const deleteBudget = async (id) => {
       try {
         // Budget 항목 삭제

@@ -8,57 +8,24 @@
         v-model="selectedMonth"
         placeholder="Select month"
       />
-      <div
-        class="card-text bg-primary"
+      <BudgetItem
         v-for="s in filteredBudgets"
         :key="s.id"
-        @click="gotoDetail(s.id)"
-      >
-        date : {{ s.date }} <br />
-        type : {{ s.type }} <br />
-        category : {{ s.category }} <br />
-        paytype : {{ s.paytype }} <br />
-        amount : {{ s.amount }} <br />
-        memo : {{ s.memo }} <br />
-        periodicExpense : {{ s.periodicExpense }}
-        <span
-          class="float-end badge bg-secondary pointer m-1"
-          @click="editBudget(s.id)"
-          >편집</span
-        >
-        <span
-          class="float-end badge bg-secondary pointer m-1"
-          @click="deleteBudget(s.id)"
-          >삭제</span
-        >
-      </div>
+        :item="s"
+      />
     </div>
   </div>
 </template>
 
 <script setup>
 import { useBudgetListStore } from '@/stores/budget';
-import { ref, computed, reactive } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
+import { ref, computed } from 'vue';
+import BudgetItem from '@/components/BudgetItem.vue';
 
 const BudgetListStore = useBudgetListStore();
 const budget = computed(() => BudgetListStore.budget);
-const matchedBudgetItem = computed(() =>
-  BudgetListStore.budget.find(
-    (item) => item.id === parseInt(currentRoute.params.id)
-  )
-);
-console.log('budget 불러오는지 확인 :' + matchedBudgetItem);
 
-const { editBudget, deleteBudget } = BudgetListStore;
-const router = useRouter();
-const currentRoute = useRoute();
-const gotoDetail = (id) => {
-  router.push(`/Detail/${id}`);
-};
-
-// budget 불러오는지 확인
-
+// 월별 필터링
 const selectedMonth = ref('');
 const filteredBudgets = computed(() => {
   const budgetList = [...budget.value].sort(

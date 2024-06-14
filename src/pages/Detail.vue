@@ -49,15 +49,6 @@ const budgetItem = computed(() =>
     ? BudgetListStore.budget[budgetIndex.value]
     : null
 );
-
-// budgetItem의 값을 확인하기 위해 콘솔 로그 추가
-watch(
-  budgetItem,
-  (newValue) => {
-    console.log(newValue);
-  },
-  { immediate: true }
-);
 </script>
 
 <style scoped>

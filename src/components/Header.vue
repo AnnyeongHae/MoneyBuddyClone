@@ -6,12 +6,10 @@
         <i class="fa-solid fa-gear"></i
       ></span>
     </h3>
-    <h1 style="text-align: center; padding: 10%">
-      MoneyBuddy
-    </h1>
+    <h1 style="text-align: center">MoneyBuddy</h1>
     <ul class="nav nav-pills justify-content-center">
       <li class="nav-item">
-        <router-link class="nav-link active pointer" to="/"
+        <router-link class="nav-link pointer" to="/"
           >Home</router-link
         >
       </li>
@@ -27,8 +25,10 @@
       </li>
     </ul>
     <hr />
-    <IEButton />
-    <hr />
+    <div v-if="showIEButton">
+      <IEButton />
+      <hr />
+    </div>
     <ul>
       <router-link
         :to="{ name: 'HomeExpense' }"
@@ -50,9 +50,5 @@ import IEButton from './IEButton.vue';
 
 .container .nav .nav-link {
   color: grey;
-}
-.container .nav .active {
-  background-color: transparent;
-  color: black;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <h2>Daily</h2>
-    </div>
+  <div>
+    <h2>Daily</h2>
+  </div>
 </template>
 
 <script setup></script>

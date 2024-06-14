@@ -1,22 +1,54 @@
 <template>
-    <div class="container">
-        <button class="btn btn-primary" @click="gotoExpense">지 출</button>
-        &nbsp;&nbsp;<button class="btn btn-primary" @click="gotoIncome">
-            수 입
-        </button>
-    </div>
+  <div class="container">
+    <button
+      class="btn"
+      :class="{ active: isActive('/') }"
+      @click="gotoExpense"
+    >
+      지 출
+    </button>
+    &nbsp;&nbsp;
+    <button
+      class="btn"
+      :class="{ active: isActive('/Income') }"
+      @click="gotoIncome"
+    >
+      수 입
+    </button>
+  </div>
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 
-const currentRoute = useRouter();
+const router = useRouter();
+const route = useRoute();
+
+const isActive = (path) => route.path === path;
+
 const gotoExpense = () => {
-    currentRoute.push('/');
+  router.push('/');
 };
+
 const gotoIncome = () => {
-    currentRoute.push('/Income');
+  router.push('/Income');
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: gainsboro;
+  color: black;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 10px;
+}
+
+.btn.active {
+  font-weight: bold;
+  background-color: black;
+  color: yellow;
+}
+</style>
