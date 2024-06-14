@@ -1,4 +1,5 @@
 <template>
+    <IEButton />
     <div class="categories">
         <button
             v-for="category in categories"
@@ -13,6 +14,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import IEButton from '@/components/IEButton.vue';
 
 // 카테고리 배열을 ref로 정의
 const categories = ref(['월급', '저축이자', '용돈', '기타']);
