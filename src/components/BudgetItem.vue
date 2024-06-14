@@ -1,11 +1,11 @@
 <template>
     <div :class="['border', borderClass]" @click="gotoDetail(item.id)">
         <span>date : {{ item.date }} </span> <br />
-        type : {{ item.type }} <br />
+        <!-- type : {{ item.type }} <br /> -->
         <b>category : {{ item.category }} <br /></b>
-        paytype : {{ item.paytype }} <br />
+        <!-- paytype : {{ item.paytype }} <br /> -->
         amount : {{ item.amount }} <br />
-        memo : {{ item.memo }} <br />
+        <!-- memo : {{ item.memo }} <br /> -->
         periodicExpense : {{ item.periodicExpense }}
         <span
             class="float-end badge bg-secondary pointer m-1"
