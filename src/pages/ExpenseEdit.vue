@@ -5,7 +5,7 @@
             <input
                 type="date"
                 id="date"
-                v-model="date"
+                v-model="budgetItem.date"
                 placeholder="Placeholder"
             />
         </div>
@@ -13,7 +13,7 @@
         <div class="app">
             <label for="category">카테고리&nbsp;</label>
 
-            <select id="category" v-model="selectedCategory">
+            <select id="category" v-model="budgetItem.category">
                 <option
                     v-for="expense in expenseCategory"
                     :value="expense"
@@ -25,13 +25,17 @@
         </div>
 
         <div class="fix-button">
-            <input type="checkbox" v-model="periodicExpense" value="false" />
-            <span> 고정 지출 : {{ periodicExpense }} </span>
+            <input
+                type="checkbox"
+                v-model="budgetItem.periodicExpense"
+                value="false"
+            />
+            <span> 고정 지출 : {{ budgetItem.periodicExpense }} </span>
         </div>
 
         <div class="c">
             <label for="paytype">지불 방법&nbsp;</label>
-            <select v-model="paytype" id="paytype">
+            <select v-model="budgetItem.paytype" id="paytype">
                 <option value="" disabled>선택</option>
                 <option value="카드">카드</option>
                 <option value="현금">현금</option>
@@ -43,7 +47,7 @@
             <label for="amount">금액&nbsp;</label>
             <input
                 type="number"
-                v-model="amount"
+                v-model="budgetItem.amount"
                 id="amount"
                 placeholder="Placeholder"
             />
@@ -53,7 +57,7 @@
             <label for="memo">메모</label>
             <br />
             <textarea
-                v-model="memo"
+                v-model="budgetItem.memo"
                 id="memo"
                 placeholder="Placeholder"
             ></textarea>
@@ -61,7 +65,10 @@
 
         <div id="f">
             <button type="reset" @click="reset">다시 쓰기</button>
-            <button type="submit" @click.prevent="editBudgetHandler">
+            <button
+                type="submit"
+                @click.prevent="editBudgetHandler(budgetItem.id)"
+            >
                 편집
             </button>
         </div>
@@ -79,39 +86,21 @@ const BudgetListStore = useBudgetListStore();
 const { budget, expenseCategories, editBudget } = BudgetListStore;
 const expenseCategory = computed(() => expenseCategories);
 
-// 반응형 변수 선언
-const date = ref('');
-const selectedCategory = ref('');
-const periodicExpense = ref(false);
-const paytype = ref('');
-const amount = ref(0);
-const memo = ref('');
-
-// 전달 데이터 객체를 만드는 함수
+// BudgetListStore를 사용하여 예산 항목을 가져옵니다.
+const budgetId = route.params.id;
+console.log('budgetID:', budgetId);
 const budgetItem = reactive({
-    id: route.params.id || '', // 경로 매개변수에서 id 가져오기
-    date: '',
-    type: 'expense',
-    paytype: '',
-    category: '',
-    amount: '',
-    memo: '',
-    periodicExpense: '',
+    ...BudgetListStore.budget.find((item) => item.id === budgetId),
 });
 
-const editBudgetHandler = () => {
-    budgetItem.id = route.params.id; // 경로 매개변수에서 id 가져오기
-    budgetItem.date = date.value;
-    budgetItem.paytype = paytype.value;
-    budgetItem.category = selectedCategory.value;
-    budgetItem.amount = amount.value;
-    budgetItem.memo = memo.value;
-    budgetItem.periodicExpense = periodicExpense.value;
-
-    console.log('editBudget 실행!', budgetItem);
-    editBudget({ ...budgetItem }, () => {
-        router.push({ name: 'Daily' });
-    });
+const editBudgetHandler = async (id) => {
+    try {
+        await BudgetListStore.editBudget({ ...budgetItem, id }, () => {
+            router.push('/Monthly');
+        });
+    } catch (error) {
+        alert('editBudget 에러 발생 : ' + error);
+    }
 };
 </script>
 

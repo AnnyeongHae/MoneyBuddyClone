@@ -90,6 +90,14 @@ const addBudgetHandler = () => {
         router.push({ name: 'Daily' });
     });
 };
+
+watch(
+    () => route.query.category,
+    (newCategory) => {
+        selectedCategory.value = newCategory;
+    },
+    { immediate: true }
+);
 </script>
 
 <style>

@@ -11,7 +11,7 @@ export const useBudgetListStore = defineStore('BudgetList', () => {
     const incomeCategory = ['월급', '저축이자', '용돈', '기타'];
     const expenseCategory = [
         '식비',
-        '생활용품비',
+        '생활용품',
         '패션미용',
         '문화생활',
         '교육',
