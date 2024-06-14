@@ -1,8 +1,8 @@
 <template>
-    <div class="border" @click="gotoDetail(item.id)">
-        <span>date : {{ item.date }} </span>
+    <div :class="['border', borderClass]" @click="gotoDetail(item.id)">
+        <span>date : {{ item.date }} </span> <br />
         type : {{ item.type }} <br />
-        category : {{ item.category }} <br />
+        <b>category : {{ item.category }} <br /></b>
         paytype : {{ item.paytype }} <br />
         amount : {{ item.amount }} <br />
         memo : {{ item.memo }} <br />
@@ -24,7 +24,7 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
-import { defineProps } from 'vue';
+import { defineProps, computed } from 'vue';
 import { useBudgetListStore } from '@/stores/budget';
 
 const router = useRouter();
@@ -46,10 +46,31 @@ const editBudget = (item) => {
         router.push(`/ExpenseEdit/${item.id}`);
     }
 };
+
+const borderClass = computed(() => {
+    return {
+        'border-blue': props.item.type === 'income',
+        'border-red': props.item.type === 'expense',
+    };
+});
 </script>
 
 <style scoped>
 .card-text {
     margin-bottom: 1rem;
+}
+.border {
+    border-width: 2px;
+    border-style: solid;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.border-blue {
+    border-color: blue !important;
+    border-width: 2px !important;
+}
+.border-red {
+    border-color: red !important;
+    border-width: 2px !important;
 }
 </style>
