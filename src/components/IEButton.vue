@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div style="text-align: center" class="container">
         <button
             class="btn"
             :class="{ active: isActive('/') }"

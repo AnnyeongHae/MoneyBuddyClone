@@ -8,6 +8,7 @@ import ExpenseEdit from '@/pages/ExpenseEdit.vue';
 import IncomeEdit from '@/pages/IncomeEdit.vue';
 import Monthly from '@/pages/Monthly.vue';
 import Detail from '@/pages/Detail.vue';
+import PeriodicExpense from '@/pages/PeriodicExpense.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -47,6 +48,11 @@ const router = createRouter({
             path: '/detail/:id',
             name: 'Detail',
             component: Detail,
+        },
+        {
+            path: '/periodicexpense',
+            name: 'PeriodicExpense',
+            component: PeriodicExpense,
         },
     ],
 });
