@@ -2,6 +2,7 @@
   <h1>🤑MoneyBuddy</h1>
   [KB]IT's your life_E2조 <br>
   개발기간 : 24.06.07 ~ 24.06.14
+  배포주소 : https://e2-moneybuddy.netlify.app
 </div>
 <br>
 <br>
