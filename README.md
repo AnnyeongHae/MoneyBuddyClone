@@ -12,7 +12,6 @@
 <div align="left">
 <br>
 
-This template should help get you started developing with Vue 3 in Vite.
   - 김은혜 : https://github.com/rladmsgP9 <br>
   - 박지현 : https://github.com/zhyeonee <br>
   - 이지은 : https://github.com/leeebao <br>
