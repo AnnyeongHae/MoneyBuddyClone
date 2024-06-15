@@ -2,8 +2,10 @@ import { defineStore } from 'pinia';
 import { reactive, computed } from 'vue';
 import axios from 'axios';
 
-const BudgetURI = '/api/budget';
-const PeriodicURI = '/api/periodicExpense';
+// const BudgetURI = '/api/budget';
+const BudgetURI = '/.netlify/functions/budget';
+// const PeriodicURI = '/api/periodicExpense';
+const PeriodicURI = '/.netlify/functions/periodicExpense';
 
 export const useBudgetListStore = defineStore('BudgetList', () => {
     const budgetState = reactive({ budget: [] });
