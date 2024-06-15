@@ -71,6 +71,5 @@ npm run dev
 ### Run Json-Server
 
 ```sh
-npm run build
 npm json-server db.json
 ```
