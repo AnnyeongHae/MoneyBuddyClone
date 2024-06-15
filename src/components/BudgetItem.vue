@@ -1,5 +1,5 @@
 <template>
-    <div :class="['border', borderClass]" @click="gotoDetail(item.id)">
+    <div :class="['border p-3', borderClass]" @click="gotoDetail(item.id)">
         <span>date : {{ item.date }} </span> <br />
         <b>category : {{ item.category }} <br /></b>
         <!-- paytype : {{ item.paytype }} <br /> -->

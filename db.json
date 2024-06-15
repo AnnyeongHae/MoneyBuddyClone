@@ -61,16 +61,6 @@
       "periodicExpense": false
     },
     {
-      "id": "8",
-      "date": "2024-06-01",
-      "type": "income",
-      "category": "저축이자",
-      "paytype": "은행",
-      "amount": "15000",
-      "memo": "저축 이자",
-      "periodicExpense": true
-    },
-    {
       "id": "9",
       "date": "2024-05-31",
       "type": "expense",
@@ -91,25 +81,47 @@
       "periodicExpense": false
     },
     {
-      "id": "9899",
+      "id": "c338",
       "date": "2024-06-14",
       "type": "expense",
-      "paytype": "은행",
+      "paytype": "현금",
+      "category": "생활용품",
+      "amount": 100000,
+      "memo": "test",
+      "periodicExpense": true
+    },
+    {
+      "id": "d48c",
+      "date": "2024-06-14",
+      "type": "expense",
+      "paytype": "카드",
+      "category": "식비",
+      "amount": 20000,
+      "memo": "초밥",
+      "periodicExpense": false
+    },
+    {
+      "id": "7f1b",
+      "date": "2024-06-14",
+      "type": "expense",
+      "paytype": "카드",
+      "category": "문화생활",
+      "amount": 10000,
+      "memo": "test",
+      "periodicExpense": true
+    },
+    {
+      "id": "d14a",
+      "date": "",
+      "type": "expense",
+      "paytype": "현금",
       "category": "패션미용",
-      "amount": 123213,
-      "memo": "12312312312",
+      "amount": 3,
+      "memo": "",
       "periodicExpense": true
     }
   ],
   "periodicExpense": [
-    {
-      "id": "8",
-      "date": "2024-06-01",
-      "type": "income",
-      "category": "저축이자",
-      "amount": "15000",
-      "memo": "저축 이자"
-    },
     {
       "id": "9",
       "date": "2024-05-31",
@@ -119,13 +131,33 @@
       "memo": "인터넷 요금"
     },
     {
-      "id": "9899",
+      "id": "c338",
       "date": "2024-06-14",
       "type": "expense",
-      "paytype": "은행",
+      "paytype": "현금",
+      "category": "생활용품",
+      "amount": 100000,
+      "memo": "test",
+      "periodicExpense": true
+    },
+    {
+      "id": "7f1b",
+      "date": "2024-06-14",
+      "type": "expense",
+      "paytype": "카드",
+      "category": "문화생활",
+      "amount": 10000,
+      "memo": "test",
+      "periodicExpense": true
+    },
+    {
+      "id": "d14a",
+      "date": "",
+      "type": "expense",
+      "paytype": "현금",
       "category": "패션미용",
-      "amount": 123213,
-      "memo": "12312312312",
+      "amount": 3,
+      "memo": "",
       "periodicExpense": true
     }
   ]
