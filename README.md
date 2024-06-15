@@ -29,16 +29,11 @@ This template should help get you started developing with Vue 3 in Vite.
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
 <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=Vue.js&logoColor=white"/>
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 </div>
 <br>
 <br>
 <br>
 
-
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 <div align="center">
   <h1>⚒️Component Structure</h1>
 
