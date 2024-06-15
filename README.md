@@ -1,4 +1,3 @@
-# MoneyBuddy
 <div align="center">
   <h1>🤑MoneyBuddy</h1>
   [KB]IT's your life_E2조 <br>
@@ -24,7 +23,6 @@ This template should help get you started developing with Vue 3 in Vite.
 <br>
 <br>
 
-## Recommended IDE Setup
 <div align="center">
   <h1>📚Stacks</h1>
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/>
@@ -38,13 +36,13 @@ This template should help get you started developing with Vue 3 in Vite.
 <br>
 <br>
 
-## Customize configuration
+
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 <div align="center">
   <h1>⚒️Component Structure</h1>
 
-## Project Setup
+
 https://app.diagrams.net/#G1trs7XDlWlJB03HLjrwMlPlKTsi9oTy9A#%7B%22pageId%22%3A%22C5RBs43oDa-KdzZeNtuy%22%7D
 
 </div>
@@ -69,14 +67,12 @@ https://www.figma.com/design/rhwszpgEIvUcASIuWzudvn/MoneyBuddy?node-id=5-5
 npm install
 ```
 
-### Compile and Hot-Reload for Development
 ### Run dev mode
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
 ### Run Json-Server
 
 ```sh
